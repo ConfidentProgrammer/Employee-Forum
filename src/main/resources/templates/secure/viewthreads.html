@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th>
+<head>
+<meta charset="ISO-8859-1">
+<title>Index page</title>
+<link rel="stylesheet" href="/css/styleviewthreads.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+</head>
+<body>
+    <div class="ball ball0"></div>
+    <div class="ball ball1"></div>
+    <div class="nav">
+    <a href="#" th:href="@{/secure/addthreads}"><button class="logout">add the thread</button></a>
+    <form action="#"th:action="@{/logout}" method="post">
+        <input class="logout" type="submit" value="Logout" />
+    </form>
+</div>
+
+		<div class="container" th:each="t : ${thread}">
+            <div class="title">
+                <div class="title-name">
+            <i class="fas fa-user"></i><p th:text="${t.name}"></p>
+            <span> &nbsp;|  &nbsp;</span><p th:text="${t.department}"></p>
+        </div>
+            <div class="date-container">
+            <p th:text="${t.threadDate}"></p>
+           <span> &nbsp; |  &nbsp;</span> <p th:text="${t.threadTime}">&nbsp;</p>
+        </div>
+        </div>
+       
+        <div class="main-area">
+			<p><p th:text="${t.content}"></p>
+        </div>
+        <div class="comment-area">
+						<div th:each="c : ${threadComment}">
+                            <span th:if="${t.id==c.cid}" th:text="${c.contentthread}"></span>
+							<span class="comment-name" th:if="${t.id==c.cid}" th:text="${c.namethread}"></span>
+							
+                        </div>				
+						
+						
+			
+			
+		
+
+	
+
+</div>
+<a class="comment-link" th:href="@{/secure/addComments/{id}(id=${t.id})}" href="#"> Add a Comment</a>
+</div>
+
+</body>
+</html>

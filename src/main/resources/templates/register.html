@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Register New User</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+<link rel="stylesheet" href="./css/styleregister.css">
+</head>
+<body class="example">
+    <div class="ball ball0"></div>
+    <div class="ball ball1"></div>
+	<div class="container">
+		<div class="container-login">
+	<h1>Register New User</h1>
+	<div class="j">
+	<form th:action="@{/register}" th:method="post" th:object=${user}>
+	 <input class="text" placeholder="username" type="text" th:field="*{username}" /><br>
+		<input class="text" placeholder="password"type="password" th:field="*{password}" /><br>
+		<input type="submit" id="login-submit" value="Register" />
+	</form>
+	<a class="already" th:href="@{/login}"><label>Login
+							(Past User)</label></a>
+	</div>
+</div>
+</div>
+</body>
+</html>

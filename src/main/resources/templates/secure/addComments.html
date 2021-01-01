@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Comments Here</title>
+</head>
+<link rel="stylesheet" href="/css/stylecomment.css">
+<body>
+    <div class="ball ball0"></div>
+    <div class="ball ball1"></div>
+<div class="container">
+
+<div class="container-login">
+    <h1>Comment on This Post</h1>
+
+<form th:action="@{/modify}" th:method="post" th:object="${cData}">
+    
+        <div>				<input class="text" placeholder="Name" th:field="${cData.namethread}" type="text"> 
+        </div>
+        <div>				<textarea class="text" placeholder="Comment"  th:field="${cData.contentthread}" type="text"></textarea>
+        </div>
+					<input type="submit" value="reply" id="login-submit">
+                </form> 
+            </div>
+            </div>
+</body>
+</html>

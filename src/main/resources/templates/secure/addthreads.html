@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Threads</title>
+<link rel="stylesheet" href="/css/styleaddthreads.css">
+</head>
+<body>
+<h1>Your Thread Matters to Us!</h1>
+<div class="ball ball0"></div>
+<div class="ball ball1"></div>
+<div class="container">
+
+    <div class="container-login">
+
+<form th:action="@{/secure/viewthreads}" th:method="post" th:object="${thread}">
+<div>
+<input class="text" placeholder="Name" type="text" th:field="${thread.name}" >
+</div>
+
+<div>
+<textarea class="text"  placeholder="Thread Content" type="text" th:field="${thread.content}"></textarea>
+</div>
+
+<div>
+<select class="text check"  id="department" name="department" th:field="${thread.Department}">
+  <option value="HR">HR Department</option>
+  <option value="IT Assistance">IT Assistance</option>
+  <option value="Cyber Security">Cyber Security</option>
+  <option value="Software Engineering">Software Engineering</option>
+</select>
+</div>
+<div>
+<input class="text" disabled id="threadDate" type="text" th:field="${thread.threadDate}">
+</div>
+<div>
+<input class="text" disabled id="time" type="text" th:field="${thread.threadTime}">
+</div>
+<input id="login-submit" type=submit value="Add">
+</form>
+</div>
+</div>
+	<script>
+	
+let date = new Date().toLocaleTimeString();
+//let timeFormated = date.toISOString().replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1");
+console.log(date);
+
+let t = document.getElementById('time');
+
+t.setAttribute('value',date);
+//let date = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+//for setting the datte
+var date1 = new Date();   //this is for date
+var day = date1.getDate();
+var month = date1.getMonth() + 1;
+var year = date1.getFullYear();
+if (month < 10) month = "0" + month;
+if (day < 10) day = "0" + day;
+var today = year + "-" + month + "-" + day;
+document.getElementById('threadDate').value = today;
+
+
+
+
+</script>
+</body>
+</html>
