@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "spring.datasource.maxActive",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.maxActive'"
+  },
+  {
+    "name": "spring.datasource.maxIdle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.maxIdle'"
+  }
+]}
